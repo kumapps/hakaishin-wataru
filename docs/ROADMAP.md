@@ -4,6 +4,10 @@
 仕様セット：MASTER.txt v1.6.13とテーマ別文書。配布ゲーム：v0.9.36。
 旧工程表・全変更履歴は99_ARCHIVE/ROADMAP_v1_53_full.mdへ保全。ここは現在の状態だけを更新する。
 
+## 2026-11-08：GitHub開発管理 v1.0（レビュー待ち）
+
+[DEVELOPMENT_RULES.md](DEVELOPMENT_RULES.md)・[DECISIONS.md](DECISIONS.md)とAGENTS.mdの追加規則を作業ブランチへ反映。状態は実装済み・未確認（PRのユーザーレビュー・main統合待ち）。既存資料の調査と改善候補は[MANAGEMENT_REVIEW.md](MANAGEMENT_REVIEW.md)。ゲーム版はv0.9.36を維持し、ゲーム実装・公開版・既存の実機確認状態は更新しない。
+
 ## 1. 目標と現在地
 
 ### 2026-10-25 v0.9.36へ反映済み
