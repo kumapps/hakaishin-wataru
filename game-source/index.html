@@ -1,0 +1,64 @@
+<!doctype html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="theme-color" content="#182c26"><title>漢字ダンジョン — 入口から水路の間までの冒険デモ</title></head><body><main id="app">
+<header><span>六字の社 <small id="area-name">入口</small></span><button id="help" aria-label="操作の説明">？</button></header>
+<section id="scene" aria-label="8区画の連続した遺跡マップ"><div id="map"></div><button id="battle-debug-open" hidden>検証</button><div id="battle-result" hidden><h2 id="result-title"></h2><div id="result-rows" class="result-summaries"></div><button id="result-return">探索に戻る</button></div><div id="message" hidden role="status" aria-live="polite"><b id="message-name"></b><p id="message-text"></p><div id="message-actions"></div></div></section>
+<section id="controls"><div id="pad" role="group" aria-label="自由な方向へ歩く円形スティック"><span class="north">▲</span><span class="west">◀</span><span class="east">▶</span><span class="south">▼</span><i id="nub"></i></div><div id="party"><article><div><b>わたる</b><span>字力 150 / 150</span></div><div class="bar"><i></i></div><div class="attributes"><span>火</span><span>水</span><span>土</span><span>風</span></div></article><article><div><b>すみれ</b><span>字力 150 / 150</span></div><div class="bar"><i></i></div><div class="attributes"><span>火</span><span>水</span><span>土</span><span>風</span></div></article><div class="row"><button id="menu-open">漢字の書</button></div></div></section>
+<section id="panel" hidden><h2 id="panel-title"></h2><div id="panel-body"></div><div id="panel-actions"></div></section>
+<section id="battle-ui" hidden><div id="battle-label"></div><div id="battle-commands"></div><div id="quiz-panel" hidden><div class="quiz-header"><span id="quiz-progress"></span><span id="quiz-time"></span></div><p id="quiz-prompt"></p><div id="answer-cells"></div><div id="answer-options"></div><div id="quiz-actions"><div id="ink-actions"><button id="ink-erase">書き直す</button><button id="ink-submit">回答</button></div><div id="quiz-end-actions"></div></div><p id="quiz-feedback" aria-live="polite"></p></div></section>
+<section id="title-screen"><div><small>全180字・AI認識 · v0.9.36</small><h1>漢字ダンジョン</h1><p>六字の社</p><p id="save-status"></p><div id="title-options"><button id="continue">続きから</button><button id="new-game">はじめから</button><button id="test-wind">風の回廊から試す</button><button id="test-water">水路の間から試す</button><button id="test-journey">火薬庫から試す</button><details class="title-debug"><summary>戦闘の検証</summary><button id="test-seal">文字喰いを試す</button><button id="test-release">封印解除だけを試す</button><button id="test-one">敵1体を試す</button><button id="test-two">敵2体を試す</button><button id="test-three">敵3体を試す</button></details></div><div id="new-game-confirm" hidden role="group" aria-label="保存の上書き確認"><p>今の冒険の保存を上書きして、<br>はじめから遊びますか？</p><div class="title-confirm-actions"><button id="new-game-start">はじめる</button><button id="new-game-cancel">タイトルに戻る</button></div></div></div></section>
+<section id="resume-screen" hidden><div><p>一時停止中</p><button id="resume">再開</button></div></section></main><script type="text/plain" id="third-party-licenses">
+The MIT License (MIT)
+
+Copyright (c) 2024 Richard Davey, Phaser Studio Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+EventEmitter3
+The MIT License (MIT)
+
+Copyright (c) 2014 Arnout Kazemier
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Handwriting recognition module and KanjiVG-derived stroke data:
+Copyright 2009/2010/2011 Ulrich Apel and contributors.
+Source: https://kanjivg.tagaini.net/
+License: Creative Commons Attribution-ShareAlike 3.0
+https://creativecommons.org/licenses/by-sa/3.0/
+Adapted from kanji_handwriting_trial_10.html; SVG paths sampled and normalized.
+The adapted recognition code and derived path data in src/recognizer.js are
+provided under CC BY-SA 3.0. The additional provisional 花/矢 paths are original
+and distributed with this module under the same license.
+
+</script><script type="module" src="/src/main.ts"></script></body></html>

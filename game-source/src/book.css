@@ -1,0 +1,75 @@
+html,body{position:fixed;inset:0;width:100%;height:100%;touch-action:pan-y;overflow:hidden;overscroll-behavior:none}#app{position:fixed}#scene,#controls{touch-action:none}#panel,#panel-body,.book-grid,.result-scroll{touch-action:pan-y;overscroll-behavior:contain}input[type=search],select{touch-action:pan-y;-webkit-user-select:text;user-select:text}
+.book-browser{display:flex;flex:1;min-height:0;flex-direction:column;gap:16px;white-space:normal}.book-toolbar{display:grid;grid-template-columns:minmax(0,1fr) 210px 160px;gap:12px;flex:none}.book-toolbar input,.book-toolbar select,.book-filters select{min-width:0;color:#f0e7c8;background:#173629;border:1px solid #899971;border-radius:10px;padding:10px;font-size:28px;height:66px}.book-toolbar input::placeholder{color:#b4bba2}.book-toolbar button,.book-status button{font-size:26px;min-height:58px;padding:7px 12px}.book-filters{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;flex:none;padding:14px;border:1px solid #71866d;border-radius:12px;background:#173529}.book-filters label{grid-column:1/-1;display:flex;align-items:center;gap:14px;font-size:27px;margin:0}.book-filters input{width:30px;height:30px;accent-color:#bfd1a3}.book-status{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:none;font-size:24px;min-height:58px}.book-status span{min-width:0;overflow-wrap:anywhere}.book-status button{flex:none}
+#panel.full-page #panel-body>.book-browser{overflow:hidden}#panel.full-page .book-browser>.kanji-cards{flex:1;min-height:0;max-height:none;align-content:start;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin:0;overflow:auto;-webkit-overflow-scrolling:touch}#panel.full-page .kanji-cards button{display:flex;flex-direction:column;justify-content:center;gap:5px;align-items:center;min-height:140px;min-width:0;padding:12px 3px}#panel.full-page .kanji-cards button b{font-size:58px;line-height:1.1;font-weight:500}#panel.full-page .kanji-cards button small{font-size:22px;line-height:1.3;color:#c4cea8;white-space:nowrap}
+
+.book-legend{display:flex;gap:12px;flex:none;justify-content:center}.book-legend span{border:2px solid;border-radius:9px;padding:4px 22px;font-size:26px}.attribute-fire{--attribute:#c88968;--attribute-bg:#644a35}.attribute-water{--attribute:#79b9c6;--attribute-bg:#294e55}.attribute-earth{--attribute:#c3b477;--attribute-bg:#58543a}.attribute-wind{--attribute:#a4c88b;--attribute-bg:#3e583a}.attribute-spirit{--attribute:#b6a0d2;--attribute-bg:#514461}.attribute-neutral{--attribute:#aaa995;--attribute-bg:#45493d}.book-legend span,#panel.full-page .kanji-cards button{background:var(--attribute-bg);border-color:var(--attribute);color:#f4ecd2}#panel.full-page .kanji-cards button{min-height:116px;border-width:3px}.book-group{grid-column:1/-1;margin:10px 0 4px;padding:10px 6px;font-size:32px;border-bottom:1px solid #82916d}.kanji-detail{display:flex;align-items:center;gap:36px;white-space:pre-line}.kanji-detail strong{font-size:110px;font-weight:500}.kanji-detail p{font-size:32px;line-height:1.7;margin:0}#panel.keyboard-open{bottom:auto;overflow:hidden}#panel.keyboard-open .book-filters,#panel.keyboard-open .book-legend,#panel.keyboard-open #panel-actions{display:none}#panel.keyboard-open .book-browser{gap:6px}#panel.keyboard-open .book-status{min-height:38px}
+.kanji-detail-page #panel-body{gap:0!important;overflow:auto}
+.kanji-overview{flex:1 0 450px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px 18px 44px;gap:14px}
+.kanji-overview .detail-glyph{font-size:170px;line-height:1.1;font-weight:500;margin:0}
+.kanji-overview p{margin:0}.detail-reading{font-size:40px}.detail-meaning{font-size:32px;line-height:1.6}.detail-meta{font-size:26px;color:#c4ceb0}
+.kanji-learning{flex:1 0 auto;border-top:2px solid #839370;padding:30px 20px 18px}
+.kanji-learning h3{font-size:32px;margin:0 0 18px;font-weight:500}.kanji-learning .learning-level{margin:0 0 22px;font-size:29px}.kanji-learning .learning-table{margin:0;width:100%;font-size:27px}.kanji-learning .learning-table th,.kanji-learning .learning-table td{padding:18px 12px}.kanji-learning .learning-legacy{font-size:24px;margin:20px 0 0}
+.practice-settings-button{position:absolute;right:0;top:-2px;min-height:35px;padding:2px 12px;font-size:23px;border-color:#82936d;background:#2c4636}
+.practice-settings-dialog{position:absolute;z-index:8;inset:42px 6px 45px;display:flex;flex-direction:column;justify-content:center;gap:16px;padding:18px 30px;border:2px solid #c3b17f;border-radius:18px;background:#203d2ffb;box-shadow:0 6px 24px #10251fc9}
+.practice-settings-dialog h3{font-size:31px;text-align:center;margin:0}.practice-settings-row{display:flex;align-items:center;gap:12px}.practice-settings-row p{width:210px;font-size:26px;margin:0;flex:none}.practice-settings-dialog button{font-size:27px;min-height:62px;padding:8px 15px;flex:1}.practice-settings-dialog button[aria-pressed=true]{background:#677c4a;border:2px solid #d2dca8;color:#fff2cc}.practice-settings-actions{display:flex;gap:18px;margin-top:10px;justify-content:center}.practice-settings-dialog .primary{background:#c6ad6b;color:#1b392a;border-color:#dec68b}.practice-settings-dialog button:disabled{opacity:.35}.guide-ready{box-shadow:0 0 0 3px #f4dfaa,0 0 14px #d9bf82}
+.book-legend{position:absolute;top:28px;right:32px;gap:10px;margin:0;z-index:1}
+.book-legend button{width:84px;min-height:64px;font-size:28px;padding:4px 6px;border:2px solid var(--attribute);background:var(--attribute-bg);color:#f4ecd2;border-radius:10px}
+.book-legend button[aria-pressed=true]{outline:3px solid #f1e4b9;outline-offset:3px;box-shadow:0 0 10px #eadab14a;font-weight:700}
+#panel.full-page .book-filters{grid-template-columns:1fr 1fr}
+
+/* Keep the secret and selected characters above the independently scrolling list. */
+#panel.full-page.binding-page #panel-body{overflow:hidden;gap:14px}
+.binding-page .binding-feedback{flex:none;min-height:48px;margin:0;text-align:center;font-size:28px;line-height:48px;color:#e8d79b;white-space:normal}
+.binding-page .binding-head .bind-action{min-width:190px}
+.notebook-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;white-space:normal}
+#message-text{white-space:pre-line}
+#message-text strong{font-weight:700;color:#fff0ba}
+.notebook-list li{display:block;padding:0}
+.notebook-list li>button{display:flex;width:100%;text-align:left;min-height:82px;align-items:center;justify-content:space-between;gap:20px;padding:18px 22px;border:1px solid #81916d;border-radius:12px;background:#294332;font-size:32px}
+.task-done{flex:none;font-size:26px;border:1px solid #aabc88;border-radius:8px;padding:2px 16px;color:#ceddad}
+#panel.full-page .debug-entry{flex-basis:100%;font-size:24px;min-height:58px;background:#223a2c;color:#c1c7ae}
+.binding-page .binding-slots button:disabled{opacity:1;cursor:default}
+.binding-page .binding-slots button.empty-slot:disabled{opacity:.65}
+#panel.binding-page.keyboard-open .binding-secret{font-size:24px;line-height:1.4;padding:10px 14px}
+#panel.binding-page.keyboard-open .binding-head .binding-slots{height:70px}
+#panel.binding-page.keyboard-open .binding-head .binding-slots button{height:70px;width:70px;font-size:32px}
+#panel.binding-page.keyboard-open .binding-head .binding-slots button.empty-slot{font-size:18px}
+/* Identical footer geometry for full-page and lower-area menus. */
+#panel:not(.full-page){display:flex;flex-direction:column;overflow:hidden;gap:12px}
+#panel:not(.full-page)[hidden]{display:none}
+#panel:not(.full-page) #panel-title{flex:none;margin:0}
+#panel:not(.full-page) #panel-body{flex:1;min-height:0;overflow:auto}
+#panel:not(.full-page) #panel-body:empty{flex:0}
+#panel:not(.full-page){margin:0 8px 8px;padding:16px 24px}
+#panel.full-page{inset:8px 8px 8px;padding:28px 24px 16px}
+#panel #panel-actions,#panel.full-page #panel-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;flex:none;margin-top:auto}
+#panel #panel-actions>button,#panel.full-page #panel-actions>button{min-width:0;height:76px;min-height:76px;width:100%;font-size:28px}
+#panel #panel-actions>.menu-back{grid-column:2}
+#panel:not(.full-page) #panel-body>button{min-height:68px;font-size:28px}
+#panel:not(.full-page) .debug-entry{font-size:24px;background:#223a2c;color:#c1c7ae}
+
+.notebook-list li>button>span:first-child{flex:1;min-width:0;overflow-wrap:anywhere}
+.notebook-arrow{flex:none;color:#c6c49b;font-size:40px;line-height:1}
+.notebook-detail{margin:12px 0;font-size:32px;line-height:1.8;white-space:pre-line;overflow-wrap:anywhere}
+
+/* The notebook keeps its list and selected record on the same page. */
+#panel.full-page.notebook-page #panel-body{display:grid;grid-template-rows:minmax(0,1fr) minmax(0,1fr);overflow:hidden;gap:18px}
+.notebook-records{min-height:0;overflow:auto;touch-action:pan-y}
+.notebook-preview{min-height:0;overflow:auto;touch-action:pan-y;border:1px solid #81916d;border-radius:12px;background:#193528;padding:20px 24px}
+.notebook-preview h3{font-size:34px;line-height:1.4;margin:0 0 18px;color:#e7dba8}
+.notebook-preview .notebook-detail{margin:0}
+.notebook-list li>button.selected{background:#435a39;border-color:#d3c67e;box-shadow:inset 0 0 0 2px #d3c67e}
+
+/* Reserve natural height for the secret and selected characters. */
+#panel.binding-page .binding-secret{flex:none;min-width:0;white-space:pre-line;overflow-wrap:anywhere;font-size:30px;line-height:1.55;padding:14px 20px;border:1px solid #82916b;border-radius:12px;background:#193528}
+#panel.binding-page .binding-head{display:flex;flex:none;align-items:center;justify-content:center;gap:24px;min-height:116px}
+#panel.binding-page .binding-slots{display:flex;flex:none;justify-content:center;align-items:center;gap:12px;height:112px}
+#panel.binding-page .binding-slots button{flex:none;width:112px;height:112px;min-height:112px;margin:0;padding:4px;font-size:52px;line-height:1.15;white-space:pre-line}
+#panel.binding-page .binding-slots button.empty-slot{font-size:23px}
+#panel.binding-page .binding-head .bind-action{flex:none;width:190px;height:90px;font-size:34px}
+#panel.binding-page .binding-feedback{flex:none;min-height:40px;line-height:40px;font-size:28px}
+#panel.binding-page.keyboard-open .binding-head{min-height:76px}
+#panel.binding-page.keyboard-open .binding-slots{height:70px}
+#panel.binding-page.keyboard-open .binding-slots button{width:70px;height:70px;min-height:70px;font-size:32px}
+#panel.binding-page.keyboard-open .binding-slots button.empty-slot{font-size:18px}
+#panel.binding-page.keyboard-open .bind-action{height:70px}

@@ -1,0 +1,9 @@
+{
+  "repo": "LT8/japanese-handwriting-onnx",
+  "revision": "7e4fa1096b1fd4dc1afb9f8ffc5b9d936adb2839",
+  "file": "model.fp16.onnx",
+  "bytes": 15248091,
+  "sha256": "5db35edaf98b482e3e1c6e62edc6d78daf0e7d72720509ddff4aee08b707ce1d",
+  "download": "https://huggingface.co/LT8/japanese-handwriting-onnx/resolve/7e4fa1096b1fd4dc1afb9f8ffc5b9d936adb2839/model.fp16.onnx",
+  "bundled": false
+}

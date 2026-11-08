@@ -1,0 +1,528 @@
+{
+  "schema_version": "0.1",
+  "status": "approved",
+  "based_on_spec": "1.5.31",
+  "title": "固定チュートリアル・魔法7種の採用済み回答データ",
+  "spells": [
+    {
+      "id": "fire_spark",
+      "name": "火花",
+      "reading": "ひばな",
+      "attribute": "火",
+      "base_power": 30,
+      "initially_registered": true,
+      "recipe": [
+        "火",
+        "花"
+      ],
+      "recipe_source": "initial",
+      "initial_mastery": 1,
+      "initial_success_streak": 0,
+      "initial_streak_status": "confirmed",
+      "effect_description": "小さな火花で敵1体を攻撃する",
+      "answer": {
+        "type": "compound_write",
+        "prompt": "「ひばな」",
+        "cells": 2,
+        "expected_characters": [
+          "火",
+          "花"
+        ],
+        "judgement": "glyph_correct_all_characters",
+        "stroke_order_bonus_per_correct_character": 0.1,
+        "support_mastery_source": "compound"
+      },
+      "registration_trace": {
+        "required": false,
+        "time_limit_seconds": null,
+        "retry": "unlimited",
+        "guide": "all_strokes_one_at_a_time",
+        "requires_glyph_correct": true,
+        "stroke_order_is_bonus_not_registration_requirement": true
+      },
+      "usage_conditions": {
+        "spell_registered": true,
+        "attribute_unsealed_for_caster": true,
+        "required_base_kanji": "火"
+      }
+    },
+    {
+      "id": "fire_arrow",
+      "name": "火の矢",
+      "reading": "ひのや",
+      "attribute": "火",
+      "base_power": 40,
+      "initially_registered": true,
+      "recipe": [
+        "火",
+        "矢"
+      ],
+      "recipe_source": "initial",
+      "initial_mastery": 1,
+      "initial_success_streak": 0,
+      "initial_streak_status": "confirmed",
+      "effect_description": "火の矢で敵1体を攻撃する",
+      "answer": {
+        "type": "compound_write",
+        "prompt": "「ひのや」",
+        "cells": 2,
+        "expected_characters": [
+          "火",
+          "矢"
+        ],
+        "judgement": "glyph_correct_all_characters",
+        "stroke_order_bonus_per_correct_character": 0.1,
+        "support_mastery_source": "compound",
+        "layout_tokens": [
+          {
+            "type": "kanji_cell",
+            "expected": "火"
+          },
+          {
+            "type": "fixed_text",
+            "text": "の"
+          },
+          {
+            "type": "kanji_cell",
+            "expected": "矢"
+          }
+        ],
+        "fixed_text_excluded_from_judgement_and_history": true
+      },
+      "registration_trace": {
+        "required": false,
+        "time_limit_seconds": null,
+        "retry": "unlimited",
+        "guide": "all_strokes_one_at_a_time",
+        "requires_glyph_correct": true,
+        "stroke_order_is_bonus_not_registration_requirement": true
+      },
+      "usage_conditions": {
+        "spell_registered": true,
+        "attribute_unsealed_for_caster": true,
+        "required_base_kanji": "火"
+      },
+      "name_revision_status": "approved",
+      "previous_display_name": "火矢"
+    },
+    {
+      "id": "water_ball",
+      "name": "水玉",
+      "reading": "みずたま",
+      "attribute": "水",
+      "base_power": 30,
+      "initially_registered": true,
+      "recipe": [
+        "水",
+        "玉"
+      ],
+      "recipe_source": "initial",
+      "initial_mastery": 1,
+      "initial_success_streak": 0,
+      "initial_streak_status": "confirmed",
+      "effect_description": "水の玉で敵1体を攻撃する",
+      "answer": {
+        "type": "compound_write",
+        "prompt": "「みずたま」",
+        "cells": 2,
+        "expected_characters": [
+          "水",
+          "玉"
+        ],
+        "judgement": "glyph_correct_all_characters",
+        "stroke_order_bonus_per_correct_character": 0.1,
+        "support_mastery_source": "compound"
+      },
+      "registration_trace": {
+        "required": false,
+        "time_limit_seconds": null,
+        "retry": "unlimited",
+        "guide": "all_strokes_one_at_a_time",
+        "requires_glyph_correct": true,
+        "stroke_order_is_bonus_not_registration_requirement": true
+      },
+      "usage_conditions": {
+        "spell_registered": true,
+        "attribute_unsealed_for_caster": true,
+        "required_base_kanji": "水"
+      }
+    },
+    {
+      "id": "water_arrow",
+      "name": "水の矢",
+      "reading": "みずのや",
+      "attribute": "水",
+      "base_power": 40,
+      "initially_registered": true,
+      "recipe": [
+        "水",
+        "矢"
+      ],
+      "recipe_source": "initial",
+      "initial_mastery": 1,
+      "initial_success_streak": 0,
+      "initial_streak_status": "confirmed",
+      "effect_description": "水の矢で敵1体を攻撃する",
+      "answer": {
+        "type": "compound_write",
+        "prompt": "「みずのや」",
+        "cells": 2,
+        "expected_characters": [
+          "水",
+          "矢"
+        ],
+        "judgement": "glyph_correct_all_characters",
+        "stroke_order_bonus_per_correct_character": 0.1,
+        "support_mastery_source": "compound",
+        "layout_tokens": [
+          {
+            "type": "kanji_cell",
+            "expected": "水"
+          },
+          {
+            "type": "fixed_text",
+            "text": "の"
+          },
+          {
+            "type": "kanji_cell",
+            "expected": "矢"
+          }
+        ],
+        "fixed_text_excluded_from_judgement_and_history": true
+      },
+      "registration_trace": {
+        "required": false,
+        "time_limit_seconds": null,
+        "retry": "unlimited",
+        "guide": "all_strokes_one_at_a_time",
+        "requires_glyph_correct": true,
+        "stroke_order_is_bonus_not_registration_requirement": true
+      },
+      "usage_conditions": {
+        "spell_registered": true,
+        "attribute_unsealed_for_caster": true,
+        "required_base_kanji": "水"
+      },
+      "name_revision_status": "approved",
+      "previous_display_name": "水矢"
+    },
+    {
+      "id": "gunpowder",
+      "name": "火薬",
+      "reading": "かやく",
+      "attribute": "火",
+      "base_power": 60,
+      "initially_registered": false,
+      "recipe": [
+        "火",
+        "薬"
+      ],
+      "recipe_source": "gunpowder_scroll",
+      "initial_mastery": 1,
+      "initial_success_streak": 1,
+      "initial_streak_status": "confirmed",
+      "effect_description": "爆発で敵1体を攻撃する",
+      "answer": {
+        "type": "compound_write",
+        "prompt": "「かやく」",
+        "cells": 2,
+        "expected_characters": [
+          "火",
+          "薬"
+        ],
+        "judgement": "glyph_correct_all_characters",
+        "stroke_order_bonus_per_correct_character": 0.1,
+        "support_mastery_source": "compound"
+      },
+      "registration_trace": {
+        "required": true,
+        "time_limit_seconds": null,
+        "retry": "unlimited",
+        "guide": "all_strokes_one_at_a_time",
+        "requires_glyph_correct": true,
+        "stroke_order_is_bonus_not_registration_requirement": true
+      },
+      "usage_conditions": {
+        "spell_registered": true,
+        "attribute_unsealed_for_caster": true,
+        "required_base_kanji": "火"
+      },
+      "exploration_usage": {
+        "event": "powder_rocks",
+        "time_limit_seconds": null,
+        "additional_question": true,
+        "power_cost": 0,
+        "blocked_by_caster_fire_seal": true
+      }
+    },
+    {
+      "id": "ice_flow",
+      "name": "氷流",
+      "reading": "ひょうりゅう",
+      "attribute": "水",
+      "base_power": 60,
+      "initially_registered": false,
+      "recipe": [
+        "氷",
+        "流"
+      ],
+      "recipe_source": "waterway_scroll",
+      "initial_mastery": 1,
+      "initial_success_streak": 1,
+      "initial_streak_status": "confirmed",
+      "effect_description": "氷を含む流れで敵1体を攻撃する",
+      "answer": {
+        "type": "compound_write",
+        "prompt": "「ひょうりゅう」",
+        "cells": 2,
+        "expected_characters": [
+          "氷",
+          "流"
+        ],
+        "judgement": "glyph_correct_all_characters",
+        "stroke_order_bonus_per_correct_character": 0.1,
+        "support_mastery_source": "compound"
+      },
+      "registration_trace": {
+        "required": true,
+        "time_limit_seconds": null,
+        "retry": "unlimited",
+        "guide": "all_strokes_one_at_a_time",
+        "requires_glyph_correct": true,
+        "stroke_order_is_bonus_not_registration_requirement": true
+      },
+      "usage_conditions": {
+        "spell_registered": true,
+        "attribute_unsealed_for_caster": true,
+        "required_base_kanji": "水"
+      },
+      "exploration_usage": {
+        "event": "watergate_shortcut",
+        "time_limit_seconds": null,
+        "additional_question": true,
+        "power_cost": 0,
+        "blocked_by_caster_water_seal": true
+      }
+    },
+    {
+      "id": "reaper",
+      "name": "死神",
+      "reading": "しにがみ",
+      "attribute": "霊",
+      "base_power": 70,
+      "initially_registered": false,
+      "recipe": [
+        "死",
+        "神"
+      ],
+      "recipe_source": "optional_enemy_victory",
+      "initial_mastery": 1,
+      "initial_success_streak": 1,
+      "initial_streak_status": "confirmed",
+      "effect_description": "死神を呼び出し敵1体を攻撃する。即死ではない",
+      "answer": {
+        "type": "compound_write",
+        "prompt": "「しにがみ」",
+        "cells": 2,
+        "expected_characters": [
+          "死",
+          "神"
+        ],
+        "judgement": "glyph_correct_all_characters",
+        "stroke_order_bonus_per_correct_character": 0.1,
+        "support_mastery_source": "compound"
+      },
+      "registration_trace": {
+        "required": true,
+        "time_limit_seconds": null,
+        "retry": "unlimited",
+        "guide": "all_strokes_one_at_a_time",
+        "requires_glyph_correct": true,
+        "stroke_order_is_bonus_not_registration_requirement": true
+      },
+      "usage_conditions": {
+        "spell_registered": true,
+        "attribute_unsealed_for_caster": true,
+        "required_base_kanji": null
+      }
+    }
+  ],
+  "tutorial": {
+    "time_limit_seconds": null,
+    "retries": "same_fixed_questions",
+    "sequence": [
+      {
+        "id": "attack",
+        "actor": "wataru",
+        "command": "attack",
+        "question_ids": [
+          "kanji_5c71_write_01",
+          "kanji_706b_reading_01",
+          "kanji_6728_meaning_01",
+          "kanji_6c34_english_01",
+          "kanji_5ddd_write_01"
+        ],
+        "shuffle_question_order": false,
+        "completion": "damage_actually_applied",
+        "all_five_correct_required": false
+      },
+      {
+        "id": "magic",
+        "actor": "sumire",
+        "command": "magic",
+        "spell_id": "water_ball",
+        "completion": "spell_activated"
+      },
+      {
+        "id": "receive_damage",
+        "actor": "wataru",
+        "event": "scripted_enemy_attack",
+        "damage_default": 10,
+        "completion": "current_power_reduced",
+        "description": "必要な被ダメージを1回見せる。通常敵の自由な連続攻撃とは分ける。"
+      },
+      {
+        "id": "book",
+        "actor": "wataru",
+        "command": "book",
+        "question_ids": [
+          "kanji_5ddd_write_01",
+          "kanji_6c34_reading_01",
+          "kanji_5c71_meaning_01",
+          "kanji_6728_english_01",
+          "kanji_706b_write_01"
+        ],
+        "shuffle_question_order": false,
+        "completion": "current_power_actually_recovered",
+        "all_five_correct_required": false
+      }
+    ],
+    "attack_and_book_questions": [
+      {
+        "id": "kanji_5c71_write_01",
+        "type": "write",
+        "prompt": "高くそびえる「やま」",
+        "answer": "山",
+        "cells": 1
+      },
+      {
+        "id": "kanji_706b_reading_01",
+        "type": "reading",
+        "prompt": "「火」の読みは？",
+        "options": [
+          "ひ",
+          "みず",
+          "つち",
+          "かぜ"
+        ],
+        "answer": "ひ"
+      },
+      {
+        "id": "kanji_6728_meaning_01",
+        "type": "meaning",
+        "prompt": "「木」の意味は？",
+        "options": [
+          "みきと枝を持つ植物",
+          "空からふる水のつぶ",
+          "音を聞く部分",
+          "数の100"
+        ],
+        "answer": "みきと枝を持つ植物"
+      },
+      {
+        "id": "kanji_6c34_english_01",
+        "type": "english",
+        "prompt": "「水」の英語は？",
+        "options": [
+          "water",
+          "wind",
+          "electricity",
+          "soil"
+        ],
+        "answer": "water"
+      },
+      {
+        "id": "kanji_5ddd_write_01",
+        "type": "write",
+        "prompt": "水が流れる「かわ」",
+        "answer": "川",
+        "cells": 1
+      },
+      {
+        "id": "kanji_6c34_reading_01",
+        "type": "reading",
+        "prompt": "「水」の読みは？",
+        "options": [
+          "みず",
+          "ちゃ",
+          "ゆき",
+          "ひがし"
+        ],
+        "answer": "みず"
+      },
+      {
+        "id": "kanji_5c71_meaning_01",
+        "type": "meaning",
+        "prompt": "「山」の意味は？",
+        "options": [
+          "平らに広がる野",
+          "大きな石のかたまり",
+          "地面が高くもり上がったところ",
+          "自然の広がる土地"
+        ],
+        "answer": "地面が高くもり上がったところ"
+      },
+      {
+        "id": "kanji_6728_english_01",
+        "type": "english",
+        "prompt": "「木」の英語は？",
+        "options": [
+          "forest",
+          "woods",
+          "tree",
+          "bamboo"
+        ],
+        "answer": "tree"
+      },
+      {
+        "id": "kanji_706b_write_01",
+        "type": "write",
+        "prompt": "もえている「ひ」",
+        "answer": "火",
+        "cells": 1
+      }
+    ],
+    "enemy_rules": {
+      "max_power_default": 90,
+      "cannot_die_before_guided_steps_completed": true,
+      "protection_scope": "guided_steps_only",
+      "normal_battle_after_tutorial": true,
+      "normal_battle_uses_normal_timer_and_atb_settings": true,
+      "prevents_party_wipe_during_guided_steps": true
+    },
+    "guided_steps_atb": "必要な操作キャラクターと敵の行動だけを順に進め、自由な敵の連続攻撃は停止する。通常戦闘から通常設定に戻す。"
+  },
+  "learning": {
+    "unrecognizable": "retry_remaining_time_no_history_at_attempt",
+    "wrong_character": "normal_wrong_answer",
+    "compound_timeout": "whole_spell_and_all_characters_wrong",
+    "cancel_or_caster_incapacitated": "discard_uncommitted_result",
+    "history_commit": "once_at_final_valid_result"
+  },
+  "pending_confirmations": [],
+  "confirmed_revisions": [
+    {
+      "date": "2026-10-05",
+      "change": "fire_arrow/water_arrow renamed with fixed kana の",
+      "status": "approved"
+    },
+    {
+      "date": "2026-10-22",
+      "change": "Exploration puzzles: choose a registered spell, write it, cast, then apply an effect only for the matching spell.",
+      "status": "approved"
+    }
+  ],
+  "content_version": "1.1",
+  "approved_at": "2026-10-22",
+  "initial_spell_success_streak": 0
+}
