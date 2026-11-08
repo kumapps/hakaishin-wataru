@@ -7,10 +7,14 @@
 - 敵は名前・字力ゲージ・ATBだけを表示します。数値と属性表示を外し、敵枠を少し低くしました。内部の字力・属性・弱点と、敵画像／枠での対象選択は維持します。味方の表示はそのままです。
 - ダメージと回復の数字は、残り字力や回復余地で切り詰める前の計算値です。残り20にダメージ100なら100、回復余地10に回復50なら50を表示します。実際の字力は0～有効最大の範囲です。封印解除の差分回復も従来の効果を維持します。
 
-単独HTMLまたはdist/index.htmlを開き、タイトルの版がv0.9.36であることを確認してください。ZIPのdist/index.html・ソース内dist/index.html・単独HTMLは同一です。編集用ソースはsource/kanji_journey、`npm ci`、`npm run build`で再生成できます。
+編集用ソースは本ディレクトリ `game-source/`、配布HTMLは [`../playable/index.html`](../playable/index.html) です。リポジトリルートから `cd game-source`、`npm ci`、`npm run build` を実行すると `game-source/dist/index.html` を生成します。タイトルの版がv0.9.36であることを確認してください。ビルドだけではPlayableを更新せず、更新にはユーザーの明示的な公開承認が必要です。
+
+2026-11-08に管理上のパス表記を整理しました。移行前の編集パスは `source/kanji_journey` でした。2026-10-25の配布物では単独HTMLとdist内HTMLの一致が検証されていますが、この履歴を今回の再検証結果とは扱いません。
 
 保存の形式とキーは維持。同じブラウザ・同じURLでは従来の保存を利用できます。ローカルHTMLの名前や場所が変わると別の保存領域になる場合があります。約15MBの固定AIモデルは同梱せず、既存の取得／設定からの手動選択を維持しています。
 
 認識・1画ガイド・音声復帰と音量スライダー・問題データ・戦闘／移動速度・威力計算・ボスと隠れボスの基準値・画像は維持しています。キャラクター素材の新規生成・差替えはありません。
 
-仕様書/00_CURRENTにMASTER 1.6.13、BATTLE_DEMO 1.6.4、UI_COMMON 1.10、LEARNING 1.7、ROADMAP 2.17、CHANGELOG 1.17と他の担当文書を収録。反映メモは1.36です。ビルド・ブラウザ検証済み、新しい方式のユーザー実機確認は今後です。過去の試遊・音の良好報告と今回の検証を分けています。詳しい結果はVALIDATION.mdを参照してください。
+現行仕様は [`../docs/MASTER.txt`](../docs/MASTER.txt) とテーマ別文書、現在状態は [`../docs/ROADMAP.md`](../docs/ROADMAP.md)、変更履歴は [`../docs/CHANGELOG.md`](../docs/CHANGELOG.md) を参照してください。移行前の配置名は `仕様書/00_CURRENT` です。2026-10-25時点の仕様版はMASTER 1.6.13、BATTLE_DEMO 1.6.4、UI_COMMON 1.10、LEARNING 1.7、ROADMAP 2.17、CHANGELOG 1.17でした。文書の管理整理とゲーム版は別管理です。反映メモ1.36は [`../migration-notes/kanji_dungeon_pending_updates.md`](../migration-notes/kanji_dungeon_pending_updates.md) にあります。
+
+2026-10-25のビルド・ブラウザ検証記録は [VALIDATION.md](VALIDATION.md) に保持しています。新方式のユーザー実機確認とは区別してください。そこに記載されたqa/の結果・スクリプトは本リポジトリに未収録・外部所在不明で、必要な開発・検証時に限って確認・回収します。不足資料を推測で再生成せず、今回再実行済みとは扱いません。

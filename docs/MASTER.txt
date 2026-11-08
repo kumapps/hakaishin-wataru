@@ -27,6 +27,8 @@ MASTERとBATTLEに同じ全更新履歴を重複して追記する方式を終�
 
 次回反映事項はプロジェクト直下のkanji_dungeon_pending_updates.md。配布ZIP内README・VALIDATIONは作成時の実装記録であり、現行仕様書とは別。
 
+管理上の参照注記（2026-11-08）：SOURCE_INDEX.mdと99_ARCHIVEの旧全文は本リポジトリに未収録・外部所在不明。必要な開発・検証時のみ確認・回収し、推測で再生成しない。上記の直下反映メモは現在 [migration-notes/kanji_dungeon_pending_updates.md](../migration-notes/kanji_dungeon_pending_updates.md) に配置。以下の旧保全先名は当時の記録として保持する。新しい管理方針は [DEVELOPMENT_RULES.md](DEVELOPMENT_RULES.md) を参照。
+
 ## 2. 適用順と保全
 
 1. ユーザーの新しい明示決定。
