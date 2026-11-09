@@ -1,8 +1,8 @@
 # 漢字ダンジョン ― 破壊神・航 ―
 # 現行仕様の総合索引・共通方針
 
-version: "1.6.13"
-updated_at: "2026-10-25"
+version: "1.6.14"
+updated_at: "2026-11-09"
 status: active
 仕様の整理対象：v1.5.68まで。配布ゲーム最新版：v0.9.36（1問パス・途中発動、敵枠の簡略化、計算値での結果数字）。
 
@@ -28,6 +28,8 @@ MASTERとBATTLEに同じ全更新履歴を重複して追記する方式を終�
 次回反映事項はプロジェクト直下のkanji_dungeon_pending_updates.md。配布ZIP内README・VALIDATIONは作成時の実装記録であり、現行仕様書とは別。
 
 管理上の参照注記（2026-11-08）：SOURCE_INDEX.mdと99_ARCHIVEの旧全文は本リポジトリに未収録・外部所在不明。必要な開発・検証時のみ確認・回収し、推測で再生成しない。上記の直下反映メモは現在 [migration-notes/kanji_dungeon_pending_updates.md](../migration-notes/kanji_dungeon_pending_updates.md) に配置。以下の旧保全先名は当時の記録として保持する。新しい管理方針は [DEVELOPMENT_RULES.md](DEVELOPMENT_RULES.md) を参照。
+
+2026-11-09整理：戦闘新UIの確定範囲はUI_COMMON第1・3～3.2・5.1節、属性確認の時間・残状態・自動閉鎖はBATTLE_DEMO第2.1節。DEC-005参照。確定・本体未実装、配布v0.9.36を維持。タイトル・中断画面の文字認識準備UIは今回の新規決定・詳細化の対象外とし、根拠のない細部を補わない。
 
 ## 2. 適用順と保全
 
