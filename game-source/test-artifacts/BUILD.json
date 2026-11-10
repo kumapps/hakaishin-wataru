@@ -1,0 +1,9 @@
+{
+  "sourceCommit": "e658e1d71e358df9e859075e96574c680ceed643",
+  "gameVersion": "0.9.36",
+  "label": "戦闘新UI テスト版（PR #4）",
+  "bytes": 18470324,
+  "sha256": "9b2a452f10beb404707e840a10fdf854a45f09516710bc4628609781ec11d0ef",
+  "storage": "opaque sandbox, in-memory only; original keys unchanged",
+  "model": "not embedded; original fixed URL or manual file selection"
+}
