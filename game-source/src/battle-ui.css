@@ -278,3 +278,137 @@
   display: grid;
   place-items: center;
 }
+
+/* Restored artwork from the v0.9 / v0.19 answer panel. Positions follow the live UI. */
+#app.in-battle #battle-ui:has(#quiz-panel:not([hidden])) {
+  --action-band: 56px;
+  --prompt-band: 48px;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0 24px 12px;
+  color: #292b21;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  background:
+    url("./assets/battle-answer/action-band.webp") top / 100% var(--action-band) no-repeat,
+    url("./assets/battle-answer/prompt-band.webp") center var(--action-band) / 100% var(--prompt-band) no-repeat,
+    url("./assets/battle-answer/ink-edge-left.webp") left bottom / 82px calc(100% - 104px) no-repeat,
+    url("./assets/battle-answer/ink-edge-right.webp") right bottom / 100px calc(100% - 104px) no-repeat,
+    url("./assets/battle-answer/paper.webp") center / cover no-repeat #f2eadb;
+}
+
+#app.in-battle #battle-ui:has(#quiz-panel:not([hidden])) #battle-label {
+  top: 0;
+  left: 138px;
+  right: 246px;
+  height: var(--action-band);
+  line-height: var(--action-band);
+  color: #fff0ce;
+  text-align: left;
+}
+
+#app.in-battle #quiz-panel {
+  grid-template-rows: var(--action-band) var(--prompt-band) minmax(0, 1fr);
+}
+
+#app.in-battle .quiz-header {
+  grid-row: 2;
+  grid-column: 1;
+  align-items: center;
+  height: auto;
+  margin: 0 24px;
+  font-size: 25px;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+
+#app.in-battle #quiz-prompt {
+  grid-column: 1;
+  align-self: center;
+  margin: 0 155px;
+  line-height: 1.15;
+  font-size: 27px;
+  max-height: var(--prompt-band);
+  overflow: auto;
+}
+
+#app.in-battle #answer-cells .ink-cell {
+  border: 3px solid #273e52;
+  border-radius: 4px;
+  background: url("./assets/battle-answer/ink-frame.webp") center / 100% 100% no-repeat #f2eadb;
+  box-shadow: none;
+}
+
+#app.in-battle #quiz-panel :is(#quiz-finish, #ink-erase, #quiz-unknown, #ink-submit) {
+  appearance: none;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 7px;
+  box-shadow: none;
+  background: var(--button-art) center / 100% 100% no-repeat #e9e0cb;
+  color: #172c40;
+  text-shadow: 0 1px #fffaf0;
+  font-family: inherit;
+  font-weight: 700;
+  min-height: 0;
+  min-width: 0;
+  padding: 0 5px;
+}
+
+#app.in-battle #quiz-panel #quiz-finish {
+  --button-art: url("./assets/battle-answer/action.webp");
+  top: 5px;
+  right: 19px;
+  width: 186px;
+  height: 46px;
+}
+
+#app.in-battle #quiz-panel #ink-erase {
+  --button-art: url("./assets/battle-answer/erase.webp");
+  top: calc(var(--action-band) + var(--prompt-band) + 22px);
+  height: 77px;
+}
+
+#app.in-battle #quiz-panel #quiz-unknown {
+  --button-art: url("./assets/battle-answer/unknown.webp");
+  bottom: 18px;
+  height: 77px;
+}
+
+#app.in-battle #quiz-panel #ink-submit {
+  --button-art: url("./assets/battle-answer/submit.webp");
+  top: calc((100% + var(--action-band) + var(--prompt-band)) / 2);
+  right: 12px;
+  width: 110px;
+  height: 160px;
+  transform: translateY(-50%);
+  background-color: #1b344d;
+  color: #fff0ce;
+  text-shadow: 0 2px #10283d;
+}
+
+#app.in-battle #quiz-panel :is(#quiz-finish, #ink-erase, #quiz-unknown, #ink-submit):disabled {
+  opacity: .72;
+  filter: grayscale(.55) brightness(.8);
+}
+
+#app.in-battle #quiz-panel :is(#quiz-finish, #ink-erase, #quiz-unknown, #ink-submit):focus-visible {
+  outline: 4px solid #297d88;
+  outline-offset: 2px;
+}
+
+#app.in-battle #quiz-panel #answer-options {
+  margin-bottom: 104px;
+}
+
+#app.in-battle #quiz-panel #answer-options button {
+  background: #f2eadb;
+  border: 2px solid #293f56;
+  color: #172c40;
+  font-family: inherit;
+}
+
+#app.in-battle #quiz-panel #quiz-unknown {
+  font-size: 22px;
+}

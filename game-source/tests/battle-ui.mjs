@@ -142,6 +142,38 @@ await test("410px cell, vertical answer and controls do not overlap", async () =
     );
   }
 });
+await test("restored button artwork follows attack and recovery states", async () => {
+  for (const command of ["attack", "book"]) {
+    await page.evaluate((command) => {
+      b.command = command;
+      b.quiz.success = 0;
+      b.showQuestion();
+    }, command);
+    const action = page.locator("#quiz-finish");
+    assert.equal(await action.textContent(), command === "attack" ? "攻撃する" : "回復する");
+    assert.ok(await action.isDisabled());
+    const button = page.locator("#ink-submit");
+    const style = await button.evaluate((element) => {
+      const { backgroundColor, backgroundImage } = getComputedStyle(element);
+      return { backgroundColor, backgroundImage };
+    });
+    assert.equal(style.backgroundColor, "rgb(27, 52, 77)");
+    assert.match(style.backgroundImage, /battle-answer\/submit\.webp/);
+    await ev(() => {
+      b.quiz.success = 1;
+      b.renderQuizActions();
+    });
+    assert.ok(await action.isEnabled());
+  }
+  if (process.env.BATTLE_ANSWER_SCREENSHOT) {
+    await page.screenshot({ path: process.env.BATTLE_ANSWER_SCREENSHOT });
+  }
+  await ev(() => {
+    b.command = "attack";
+    b.quiz.success = 0;
+    b.showQuestion();
+  });
+});
 await test("real pointer handwriting and erase", async () => {
   const r = await page.locator(".ink-cell canvas").first().boundingBox();
   await page.mouse.move(r.x + 30, r.y + 30);

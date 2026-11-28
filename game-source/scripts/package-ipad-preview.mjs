@@ -4,12 +4,16 @@ import { resolve } from "node:path";
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
 const destination = resolve(process.argv[2] ?? "dist-ipad-preview");
+const label = process.argv[3] ?? "戦闘新UI テスト版（PR #4）";
+const escapedLabel = label.replace(/[&<>"\x27]/g, (character) =>
+  ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "\x27": "&#39;" })[character],
+);
 const source = await readFile(
   new URL("../dist/index.html", import.meta.url),
   "utf8",
 );
 if (!source.includes("v0.9.36") || !source.includes("battle-attribute-layer"))
-  throw Error("Build PR #4 first");
+  throw Error("Build the development battle UI first");
 const revision = execFileSync("git", ["rev-parse", "HEAD"], {
   encoding: "utf8",
 }).trim();
@@ -30,12 +34,12 @@ let game = source
   .replace("<head>", "<head>" + memoryBootstrap)
   .replace(
     /<title>[^<]*<\/title>/,
-    "<title>戦闘新UI テスト版（PR #4） · v0.9.36</title>",
+    `<title>${escapedLabel} · v0.9.36</title>`,
   )
-  .replace("全180字・AI認識 · v0.9.36", "戦闘新UI テスト版（PR #4） · v0.9.36");
+  .replace("全180字・AI認識 · v0.9.36", `${escapedLabel} · v0.9.36`);
 // Escape '<' before embedding JSON in a script, including nested closing tags.
 const serialized = JSON.stringify(game).replace(/</g, "\\u003c");
-const html = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><title>戦闘新UI テスト版（PR #4） · v0.9.36</title><style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#101e1a}iframe{border:0;width:100%;height:100%;display:block}</style></head><body><!-- Source commit: ${revision}. Test progress is in-memory only. --><iframe id="preview" title="戦闘新UI テスト版（PR #4）" sandbox="allow-scripts"></iframe><script>document.getElementById('preview').srcdoc=${serialized};</script></body></html>`;
+const html = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><title>${escapedLabel} · v0.9.36</title><style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#101e1a}iframe{border:0;width:100%;height:100%;display:block}</style></head><body><!-- Source commit: ${revision}. Test progress is in-memory only. --><iframe id="preview" title="${escapedLabel}" sandbox="allow-scripts"></iframe><script>document.getElementById('preview').srcdoc=${serialized};</script></body></html>`;
 await mkdir(destination, { recursive: true });
 await writeFile(resolve(destination, "battle-ui-pr4-ipad.html"), html);
 await writeFile(
@@ -44,7 +48,7 @@ await writeFile(
     {
       sourceCommit: revision,
       gameVersion: "0.9.36",
-      label: "戦闘新UI テスト版（PR #4）",
+      label,
       bytes: Buffer.byteLength(html),
       sha256: createHash("sha256").update(html).digest("hex"),
       storage: "opaque sandbox, in-memory only; original keys unchanged",
