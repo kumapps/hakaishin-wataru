@@ -1,4 +1,4 @@
-# 戦闘回答UI 和風デザイン復元 テスト版
+# 戦闘UI デザイン統一 テスト版
 
 Mac／PCでZIPを専用フォルダーに展開し、そこで `python3 serve-ipad-preview.py` を実行します。
 Mac Safariは `http://localhost:8765/battle-ui-pr4-ipad.html` を開きます。
