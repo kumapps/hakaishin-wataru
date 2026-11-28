@@ -16,7 +16,9 @@ try {
   });
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
-  await page.goto("http://localhost:8765/BUILD.json");
+  const metadata = await page.goto("http://localhost:8765/BUILD.json");
+  assert.ok(metadata?.ok());
+  const { label, gameVersion } = await metadata.json();
   await page.evaluate(() => {
     localStorage.setItem(
       "kanji-dungeon.journey.save.v7",
@@ -48,9 +50,9 @@ try {
     await page.locator("iframe").getAttribute("sandbox"),
     "allow-scripts",
   );
-  assert.match(
+  assert.equal(
     await frame.locator("#title-screen small").textContent(),
-    /戦闘新UI テスト版（PR #4）.*v0.9.36/,
+    `${label} · v${gameVersion}`,
   );
   await frame.locator("summary").click();
   await frame.locator("#test-one").click();
