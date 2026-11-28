@@ -37,6 +37,35 @@ async function test(name, fn) {
   console.log("PASS", name);
 }
 const ev = (fn) => page.evaluate(fn);
+async function capture(name) {
+  const directory = process.env.BATTLE_SCREENSHOTS;
+  if (directory) {
+    await fs.mkdir(directory, { recursive: true });
+    await page.locator("#battle-ui").screenshot({ path: `${directory}/${name}.png` });
+  }
+}
+await test("command panel uses paper with visible enabled and disabled states", async () => {
+  const commands = page.locator("#battle-commands");
+  const panel = page.locator("#battle-ui");
+  await ev(() => { make(); });
+  assert.ok(await commands.getByText("たたかう").isDisabled());
+  assert.match(await panel.evaluate(e => getComputedStyle(e).backgroundImage), /paper\.webp/);
+  assert.ok(await page.locator("#answer-cells").isHidden());
+  await capture("commands-disabled");
+  await ev(() => b.ready(b.hero));
+  const attack = commands.getByText("たたかう");
+  assert.ok(await attack.isEnabled());
+  await attack.focus();
+  assert.equal(await attack.evaluate(e => getComputedStyle(e).outlineStyle), "solid");
+  await capture("commands-enabled");
+  await ev(() => b.ready(b.sister));
+  await commands.getByText("まほう").click();
+  assert.ok(await commands.getByText("戻る").isVisible());
+  await commands.getByText("戻る").click();
+  assert.ok(await commands.getByText("漢字の書").isVisible());
+  await ev(() => { make(); });
+});
+
 await test("unsealed attributes and next tap consumes behind operation", async () => {
   await page.locator(".battle-hud").first().click();
   assert.equal(await ev(() => b.attributeActor?.id), "w");
@@ -152,6 +181,7 @@ await test("restored button artwork follows attack and recovery states", async (
     const action = page.locator("#quiz-finish");
     assert.equal(await action.textContent(), command === "attack" ? "攻撃する" : "回復する");
     assert.ok(await action.isDisabled());
+    await capture(`${command}-disabled`);
     const button = page.locator("#ink-submit");
     const style = await button.evaluate((element) => {
       const { backgroundColor, backgroundImage } = getComputedStyle(element);
@@ -164,6 +194,7 @@ await test("restored button artwork follows attack and recovery states", async (
       b.renderQuizActions();
     });
     assert.ok(await action.isEnabled());
+    await capture(`${command}-enabled`);
   }
   if (process.env.BATTLE_ANSWER_SCREENSHOT) {
     await page.screenshot({ path: process.env.BATTLE_ANSWER_SCREENSHOT });
@@ -430,6 +461,37 @@ await test("two and three character spell cells inside answer region", async () 
       if (previous) assert.ok(previous.x + previous.width <= r.x);
       previous = r;
     }
+    await capture(`writing-${count}-characters`);
+  }
+});
+await test("four choices keep the frame and show the clicked outcome", async () => {
+  for (const correct of [true, false]) {
+    await page.evaluate(() => {
+      make();
+      b.ready(b.hero);
+      b.command = "attack";
+      b.startQuiz();
+      b.quiz.questions[0] = {
+        type: "read",
+        prompt: "「月」の読みは？",
+        answer: "つき",
+        options: ["つき", "からだ", "きた", "さかな"],
+      };
+      b.showQuestion();
+    });
+    const options = page.locator("#answer-options button");
+    assert.equal(await options.count(), 4);
+    assert.match(await options.first().evaluate(e => getComputedStyle(e).borderImageSource), /action\.webp/);
+    if (correct) await capture("choices");
+    const choice = page.locator("#answer-options").getByText(correct ? "つき" : "きた");
+    const box = await choice.boundingBox();
+    await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+    await page.mouse.down();
+    assert.equal(await choice.evaluate(e => getComputedStyle(e).backgroundColor), "rgb(222, 200, 153)");
+    await page.mouse.up();
+    assert.equal(await choice.getAttribute("data-result"), correct ? "correct" : "incorrect");
+    assert.ok(await choice.isDisabled());
+    await capture(correct ? "choices-correct" : "choices-incorrect");
   }
 });
 await test("1/2/3 enemies HUDs fit without intersecting HUDs or sprite bounds", async () => {

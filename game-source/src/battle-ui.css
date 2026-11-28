@@ -20,7 +20,7 @@
   line-height: 30px;
 }
 #app.in-battle #battle-commands {
-  padding-top: 36px;
+  padding-top: var(--action-band);
 }
 #app.in-battle #quiz-panel {
   gap: 0;
@@ -132,7 +132,8 @@
   bottom: 0;
   min-height: 0;
   margin: 0;
-  background: #18392fee;
+  background: #172f3fee;
+  color: #fff0ce;
   border-radius: 8px;
   font-size: 24px;
   line-height: 30px;
@@ -280,9 +281,9 @@
 }
 
 /* Restored artwork from the v0.9 / v0.19 answer panel. Positions follow the live UI. */
-#app.in-battle #battle-ui:has(#quiz-panel:not([hidden])) {
+#app.in-battle #battle-ui {
   --action-band: 56px;
-  --prompt-band: 48px;
+  --prompt-band: 0px;
   border: 0;
   border-radius: 0;
   box-shadow: none;
@@ -292,12 +293,16 @@
   background:
     url("./assets/battle-answer/action-band.webp") top / 100% var(--action-band) no-repeat,
     url("./assets/battle-answer/prompt-band.webp") center var(--action-band) / 100% var(--prompt-band) no-repeat,
-    url("./assets/battle-answer/ink-edge-left.webp") left bottom / 82px calc(100% - 104px) no-repeat,
-    url("./assets/battle-answer/ink-edge-right.webp") right bottom / 100px calc(100% - 104px) no-repeat,
+    url("./assets/battle-answer/ink-edge-left.webp") left bottom / 82px calc(100% - var(--action-band) - var(--prompt-band)) no-repeat,
+    url("./assets/battle-answer/ink-edge-right.webp") right bottom / 100px calc(100% - var(--action-band) - var(--prompt-band)) no-repeat,
     url("./assets/battle-answer/paper.webp") center / cover no-repeat #f2eadb;
 }
 
-#app.in-battle #battle-ui:has(#quiz-panel:not([hidden])) #battle-label {
+#app.in-battle #battle-ui:has(#quiz-panel:not([hidden])) {
+  --prompt-band: 48px;
+}
+
+#app.in-battle #battle-ui #battle-label {
   top: 0;
   left: 138px;
   right: 246px;
@@ -402,13 +407,64 @@
   margin-bottom: 104px;
 }
 
-#app.in-battle #quiz-panel #answer-options button {
-  background: #f2eadb;
-  border: 2px solid #293f56;
-  color: #172c40;
+/* Use only the source button frame so the center stays opaque at every size. */
+#app.in-battle #battle-commands button,
+#app.in-battle #quiz-panel #answer-options button,
+#app.in-battle #quiz-panel :is(#ink-erase, #quiz-unknown) {
+  background: #fff5df;
+  border: 8px solid #223b54;
+  border-image: url("./assets/battle-answer/action.webp") 32 49 / 8px / 0 stretch;
+  color: #142b42;
   font-family: inherit;
+  text-shadow: none;
+  box-shadow: 0 3px 7px #10233155;
+}
+
+#app.in-battle #quiz-panel :is(#ink-erase, #quiz-unknown) {
+  border-image-source: var(--button-art);
+  border-image-slice: 38 50;
+  opacity: 1;
 }
 
 #app.in-battle #quiz-panel #quiz-unknown {
-  font-size: 22px;
+  font-size: 21px;
+  padding-inline: 0;
+}
+
+#app.in-battle #battle-commands button:disabled,
+#app.in-battle #quiz-panel #answer-options button:disabled,
+#app.in-battle #quiz-panel :is(#ink-erase, #quiz-unknown):disabled {
+  opacity: 1;
+  filter: none;
+  background: #e5e1d7;
+  color: #56606a;
+  box-shadow: none;
+}
+
+#app.in-battle #battle-commands button:focus,
+#app.in-battle #quiz-panel #answer-options button:focus-visible {
+  outline: 4px solid #267585;
+  outline-offset: 2px;
+}
+
+#app.in-battle #battle-commands button:enabled:active,
+#app.in-battle #quiz-panel :is(#answer-options button, #ink-erase, #quiz-unknown):enabled:active {
+  background: #dec899;
+  box-shadow: inset 0 3px 6px #342b2766;
+  filter: brightness(.93);
+}
+
+#app.in-battle #quiz-panel #answer-options button[data-result] {
+  outline: 3px solid currentColor;
+  outline-offset: -12px;
+}
+
+#app.in-battle #quiz-panel #answer-options button[data-result="correct"] {
+  background: #e1edda;
+  color: #234d31;
+}
+
+#app.in-battle #quiz-panel #answer-options button[data-result="incorrect"] {
+  background: #f5ded6;
+  color: #822e27;
 }
