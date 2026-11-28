@@ -1,0 +1,280 @@
+/* Development battle UI. Exploration, recovery and practice keep their layout. */
+#app.in-battle #scene {
+  flex: 0 0 65%;
+  height: 65%;
+}
+#app.in-battle #battle-ui {
+  position: relative;
+  flex: 0 0 35%;
+  height: 35%;
+  margin: 0;
+  padding: 8px 20px;
+  border-radius: 20px 20px 0 0;
+}
+#app.in-battle #battle-label {
+  position: absolute;
+  left: 24px;
+  top: 10px;
+  height: 30px;
+  font-size: 25px;
+  line-height: 30px;
+}
+#app.in-battle #battle-commands {
+  padding-top: 36px;
+}
+#app.in-battle #quiz-panel {
+  gap: 0;
+  display: grid;
+  grid-template-rows: 32px 40px minmax(0, 1fr);
+  grid-template-columns: 1fr;
+  position: relative;
+}
+#app.in-battle .quiz-header {
+  height: 32px;
+  margin-left: 140px;
+  margin-right: 170px;
+  font-size: 24px;
+  line-height: 30px;
+  border: 0;
+  padding: 0;
+}
+#app.in-battle #quiz-prompt {
+  grid-row: 2;
+  font-size: 28px;
+  line-height: 36px;
+  min-height: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+#app.in-battle #answer-cells {
+  grid-row: 3;
+  margin: 0 146px;
+  width: calc(100% - 292px);
+  gap: 18px;
+}
+#app.in-battle #answer-cells .ink-cell {
+  width: min(100cqh, 100cqw, 410px);
+  height: min(100cqh, 100cqw, 410px);
+}
+#app.in-battle #answer-cells[data-count="2"] .ink-cell {
+  width: min(100cqh, calc((100cqw - 18px) / 2), 410px);
+  height: min(100cqh, calc((100cqw - 18px) / 2), 410px);
+}
+#app.in-battle #answer-cells:has(.fixed-kana) .ink-cell {
+  width: min(100cqh, calc((100cqw - 78px) / 2), 410px);
+  height: min(100cqh, calc((100cqw - 78px) / 2), 410px);
+}
+#app.in-battle #answer-cells[data-count="3"] .ink-cell {
+  width: min(100cqh, calc((100cqw - 36px) / 3));
+  height: min(100cqh, calc((100cqw - 36px) / 3));
+}
+#app.in-battle #quiz-actions,
+#app.in-battle #ink-actions,
+#app.in-battle #quiz-end-actions {
+  display: contents;
+}
+#app.in-battle #quiz-finish {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: auto;
+  width: 160px;
+  height: 34px;
+  min-height: 34px;
+  padding: 0 4px;
+  font-size: 25px;
+  white-space: nowrap;
+}
+#app.in-battle #ink-erase {
+  position: absolute;
+  left: 0;
+  top: 88px;
+  width: 132px;
+  min-height: 64px;
+  padding: 6px 2px;
+  font-size: 26px;
+}
+#app.in-battle #ink-submit {
+  position: absolute;
+  right: 16px;
+  top: 56%;
+  transform: translateY(-20%);
+  width: 82px;
+  height: 132px;
+  min-width: 0;
+  min-height: 0;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 9px;
+  font-size: 32px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #294453, #172f3d);
+  color: #f0e5c6;
+  border: 2px solid #a99a73;
+  text-shadow: none;
+  box-shadow:
+    inset 0 0 0 3px #9d956c30,
+    0 3px 8px #071b1660;
+}
+#app.in-battle #quiz-unknown {
+  position: absolute;
+  left: 0;
+  bottom: 14px;
+  width: 132px;
+  min-height: 60px;
+  font-size: 24px;
+  padding: 5px 0;
+}
+#app.in-battle #quiz-feedback {
+  position: absolute;
+  left: 150px;
+  right: 130px;
+  bottom: 0;
+  min-height: 0;
+  margin: 0;
+  background: #18392fee;
+  border-radius: 8px;
+  font-size: 24px;
+  line-height: 30px;
+  pointer-events: none;
+}
+#app.in-battle #quiz-feedback:empty {
+  display: none;
+}
+#app.in-battle #answer-options {
+  grid-row: 3;
+  margin: 0 0 70px;
+  width: 100%;
+  padding: 8px 12px;
+}
+#app.in-battle
+  #quiz-panel:not([data-type="write"]):not([data-type="magic"])
+  #quiz-prompt {
+  font-size: 30px;
+  line-height: 36px;
+}
+#app.in-battle .battle-hud {
+  padding: 6px 12px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  grid-template-columns: 1fr;
+  grid-template-rows: 44px 38px;
+  gap: 4px;
+  isolation: isolate;
+}
+#app.in-battle .hud-name {
+  grid-row: 1;
+  grid-column: 1;
+  white-space: pre-line;
+  overflow: visible;
+  text-overflow: clip;
+  font-family: serif;
+  font-size: 25px;
+  line-height: 26px;
+  letter-spacing: 0;
+  align-self: center;
+  position: relative;
+  text-shadow: 0 1px 3px #000;
+}
+#app.in-battle .hud-name:before {
+  content: "";
+  position: absolute;
+  inset: -5px -12px;
+  z-index: -1;
+  background: radial-gradient(
+    ellipse,
+    #142527f5 30%,
+    #182b2ac9 55%,
+    #203a3320 70%,
+    transparent 75%
+  );
+  filter: blur(3px);
+}
+#app.in-battle .hud-bar {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: center;
+  width: 100%;
+  height: 30px;
+  margin: 0;
+  border: 2px solid #8a9b83;
+  background: #132b28;
+}
+#app.in-battle .hud-value {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: center;
+  justify-self: center;
+  font-size: 23px;
+  line-height: 30px;
+  z-index: 1;
+  text-shadow:
+    0 1px 3px #000,
+    1px 0 2px #000;
+}
+#app.in-battle .hud-value .reduced {
+  color: #ff8880;
+}
+#app.in-battle .enemy-hud .hud-bar {
+  height: 14px;
+  border-color: #906e60;
+}
+#app.in-battle .enemy-hud .hud-bar i {
+  background: linear-gradient(#c17e6c, #934f45);
+}
+#app.in-battle .hud-atb {
+  inset: 46px 4px auto;
+  width: calc(100% - 8px);
+  height: 40px;
+}
+#app.in-battle .battle-hud.selected,
+#app.in-battle .battle-hud.target {
+  outline: 0;
+}
+#app.in-battle .battle-hud.selected .hud-bar {
+  box-shadow: 0 0 10px #f0daa2;
+}
+#app.in-battle .battle-hud.target .hud-bar {
+  box-shadow: 0 0 12px #e1c483;
+}
+.battle-attribute-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  touch-action: none;
+  cursor: pointer;
+}
+.battle-attributes {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  top: calc(65% + 70px);
+  padding: 30px;
+  border: 3px solid #b9a477;
+  border-radius: 20px;
+  background: #172f3ff7;
+  box-shadow: 0 8px 30px #0007;
+  text-align: center;
+  font-size: 30px;
+}
+.battle-attributes .attributes {
+  justify-content: center;
+  gap: 30px;
+  margin-top: 24px;
+  min-height: 90px;
+  align-items: center;
+}
+.battle-attributes .attribute-symbol {
+  position: relative;
+  font: 48px serif;
+  letter-spacing: 0;
+}
+.battle-attributes .attribute-symbol.sealed:after {
+  content: "❌";
+  position: absolute;
+  inset: 0;
+  font: 40px system-ui;
+  display: grid;
+  place-items: center;
+}
